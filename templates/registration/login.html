@@ -1,0 +1,31 @@
+{% extends "rango/base.html" %}
+{% block body_block %}
+    <link href="https://v4.bootcss.com/docs/4.0/examples/signin/signin.css" rel="stylesheet">
+    <div class="jumbotron">
+        <h1 class="display-3">Login</h1>
+    </div>
+
+    <form class="form-signin" role="form" method="post" action=".">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Logar</h2>
+        <label for="inputUsername" class="sr-only">Usuario</label>
+        <input type="text"  name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Me lembre
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </form>
+    <p>
+        Not a member? <a href="{% url 'registration_register' %}">Registrar!</a>
+    </p>
+{#    <form method="post" action=".">#}
+{#      {% csrf_token %}#}
+{#      {{ form.as_p }}#}
+{##}
+{#      <input type="submit" value="login" />#}
+{#    </form>#}
+{% endblock %}

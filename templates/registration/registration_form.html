@@ -1,0 +1,30 @@
+{% extends "rango/base.html" %}
+{% block body_block %}
+    <h2 class="form-signin-heading">Registre-se por aqui</h2>
+        <form role="form" id="user_form" method="post" action=".">
+            {% csrf_token %}
+            <div class="form-group">
+                <p class="required"><label class="required" for="id_username">Usuario:</label>
+                <input class="form-control" id="id_username" maxlength="30" name="username" type="text" />
+                <span class="helptext">Senha de no maximo 30 caracteres</span>
+                </p>
+                <p class="required"><label class="required" for="id_email">E-mail:</label>
+                <input class="form-control" id="id_email" name="email" type="email" />
+                </p>
+                <p class="required"><label class="required" for="id_password1">Senha:</label>
+                <input class="form-control" id="id_passwprd1" name="password1" type="password" />
+                </p>
+                <p class="required"><label class="required" for="id_password2">Repita senha:</label>
+                <input class="form-control" id="id_passwprd2" name="password2" type="password" />
+                <span class="helptext">Entre com a senha novamente.</span>
+                </p>
+            </div>
+            <button type="submit" class="btn btn-primary">Submeter</button>
+        </form>
+
+        <form method="post" action=".">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

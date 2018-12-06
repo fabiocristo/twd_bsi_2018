@@ -1,0 +1,33 @@
+{% extends "rango/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Criar uma categoria
+{% endblock %}
+
+{% block body_block %}
+        <h2 class="form-signin-heading">Adicionar uma categoria</h2>
+        <form role="form" id="category_form" method="post" action="{% url 'add_category' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+                {% for field in form.visible_fields %}
+                    {{ field.errors }}
+                    {% if field == 'name' %}
+                        {{ field.name }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                {% endfor %}
+                {#            <input type="submit" name="submit" value="Create Category" />#}
+                <div style="margin-top: 10px">
+                    <button class="btn btn-primary" type="submit" name="submit">Criar categoria</button>
+                </div>
+            </div>
+        </form>
+{% endblock %}

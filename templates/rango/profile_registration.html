@@ -1,0 +1,20 @@
+{% extends "rango/base.html" %}
+
+{% block title %}
+    Registratiobn - Step 2
+{% endblock %}
+
+{% block body_block %}
+    <h1>Registrar - passo 2</h1>
+    <form method="post" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+    {{ form.website }}
+    {% if form.website.help_text %}
+        <small class="form-text text-muted">{{ form.website.help_text }}</small>
+    {% endif %}
+    {{ form.picture }}
+    </div>
+        <button class="btn btn-primary" type="submit">Submeter</button>
+    </form>
+{% endblock %}

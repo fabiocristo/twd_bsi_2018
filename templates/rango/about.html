@@ -1,0 +1,31 @@
+{% extends "rango/base.html" %}
+{% load staticfiles %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% block title %}About{% endblock %}
+
+{% block body_block %}
+    <p>{{ message }}</p>
+    <p>Visitas? {{ visits }}</p>
+
+
+    <button class="btn btn-primary btn"
+        onClick="alert('You clicked the button using JavaScript.');">
+        Aperte aqui, para testar o js
+    </button>
+    <div style="height: 10px"></div>
+    <button class="btn btn-primary" id="about-btn">
+    Aperte aqui para testar o js</button>
+    <p>Isso e um exemplo</p>
+    <p>Isso e um outro exemplo</p>
+
+{% endblock %}
